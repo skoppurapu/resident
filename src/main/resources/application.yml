@@ -1,0 +1,36 @@
+spring:
+  config:
+    activate:
+      on-profile: ${SPRING.PROFILES.ACTIVE}
+  jackson:
+    deserialization:
+      failOnUnknownProperties: false
+  datasource:
+    url: ${spring.datasource.url}
+    username: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+app:
+  name: CommunityResident
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: ['health', 'info', 'logfile', 'loggers', 'threaddump', 'flyway', 'metrics', 'httptrace']
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    loggers:
+      enabled: true
+    flyway:
+      enabled: true
+    metrics:
+      enabled: true
+    httptrace:
+      enabled: true
+server:
+  port: 8080
+  servlet:
+    contextPath: /community

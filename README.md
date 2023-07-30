@@ -43,6 +43,16 @@ Note: If asked for credentials, use the email id on your git hub account and ent
 - Go to ```File -> Project Structure -> Modules``` and verify that java version is set to 11 under ```Sources``` and ```dependencies``` tabs. If not update the settings.
 - Go to ```IntelliJ IDEA -> Preferences - Build, Execution, Deploy```
 - Click on ```Add Configuration``` on the top right menu. Click on + icon and select Maven. Then in the command options enter ```clean spring-boot:run```
+- Setup the below environment variables under the Runner tab by unselecting "Use Project settings". 
+```shell script
+Required Environment variables:
+
+spring.datasource.url
+spring.datasource.password
+spring.datasource.username
+SPRING.PROFILES.ACTIVE
+
+```
 - Click on OK. You should now see this option and a run button against it.
 - Click on the run button. You should see a successful build and run logs on the console. Something that ends with the below lines:
 ```shell script
@@ -55,11 +65,11 @@ Note: If asked for credentials, use the email id on your git hub account and ent
 You can verify if the application is successfully running by doing either or both of the below:
  - Check actuator endpoint
  ```
-http://localhost:8080/actuator
+http://localhost:8080/community/actuator
 ```
 - Check Ping (sample endpoint). Should return Success message.
 ```shell script
-http://localhost:8080/ping
+http://localhost:8080/community/ping
 ```
 - Basic project setup is complete when you see the Success message.
 

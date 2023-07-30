@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='CommunityResident'>
+
+    <sql id="GetAllResidentsQuery">
+        SELECT first_name, last_name FROM resident
+    </sql>
+
+    <select id="GetAllResidents" resultType="">
+        SELECT * FROM
+            (
+                <include refid="GetAllResidentsQuery" />
+            ) residents
+        ORDER BY last_name, first_name
+    </select>
+</mapper>
